@@ -1,0 +1,2 @@
+INSERT INTO public.acquiring_setups (id, payment_system, failed_cost, min_cost, percent_cost, created_at, updated_at) VALUES (1, 'cloudpayments', 0.5, 3.9, 0.039, '2023-03-09 01:27:09', '2023-03-09 01:27:09');
+INSERT INTO public.acquiring_setups (id, payment_system, failed_cost, min_cost, percent_cost, created_at, updated_at) VALUES (2, 'impaya', 0, 20, 0.08, '2023-03-09 01:27:09', '2023-03-09 01:27:09');
