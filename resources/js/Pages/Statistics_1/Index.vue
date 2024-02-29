@@ -8,7 +8,7 @@
     <table class="w-full whitespace-nowrap">
       <tr class="text-left font-bold">
         <th class="pb-4 pt-6 px-6 border-r-2">Дата</th>
-        <th class="pb-4 pt-6 px-6 border-r-2">Тип конверсии</th>
+        <th class="pb-4 pt-6 px-6 border-r-2">Тип</th>
         <th class="pb-4 pt-6 px-6">Сумма</th>
         <th class="pb-4 pt-6 px-6 border-r-2">s1</th>
         <th class="pb-4 pt-6 px-6 border-r-2">s2</th>
