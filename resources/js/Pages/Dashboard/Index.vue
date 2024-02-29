@@ -200,7 +200,7 @@
       </h1>
     </div>
     <div class=" hover:underline text-blue-600">
-      <a :href="Lend_2"> https://smspoisk.ru/land2/?source={{source_name}}</a>
+      https://smspoisk.ru/land2/?source={{source_name}}&s1=dzen&s2=article1
     </div>
   </div>
 
