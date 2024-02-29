@@ -1,0 +1,1 @@
+INSERT INTO public.settings (id, name, value, type, description, created_at, updated_at, deleted_at) VALUES (1, 'default_low_price', '0.1', 'float', 'Дефолтный коэффициент платежа при понижайке', '2023-10-11 20:59:17', '2023-10-11 20:59:17', null);

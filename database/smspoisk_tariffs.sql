@@ -1,0 +1,2 @@
+INSERT INTO public.smspoisk_tariffs (id, name, is_default, price, period, sms_limit, created_at, updated_at) VALUES (2, 'Рекурент', false, 1500, 5, 10, '2023-05-16 15:16:51', '2023-05-16 15:16:51');
+INSERT INTO public.smspoisk_tariffs (id, name, is_default, price, period, sms_limit, created_at, updated_at) VALUES (1, 'Пробный доступ на 1 день', true, 99, 1, 2, '2023-05-16 15:16:51', '2023-05-16 15:16:51');
