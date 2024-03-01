@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Head title="Dashboard" />
+    <Head title="Dashboard"/>
     <h1 class="mb-8 text-3xl font-bold">Страница Конверсии</h1>
   </div>
 
@@ -16,34 +16,48 @@
         <th class="pb-4 pt-6 px-6 border-r-2">s4</th>
         <th class="pb-4 pt-6 px-6 border-r-2">s5</th>
       </tr>
-      <!--      <tr v-for="payment in payments" :key="payment.id" class="hover:bg-gray-100 focus-within:bg-gray-100">-->
-      <!--        <td class="w-px border-t p-2.5 border-r-2">-->
-      <!--          {{ payment.created_at }}-->
-      <!--        </td>-->
+      <tr v-for="conversion in tableConversion.data" :key="conversion.id" class="hover:bg-gray-100 focus-within:bg-gray-100">
+        <td class="w-px border-t p-2.5 border-r-2">
+          {{ conversion.day }}
+        </td>
 
-      <!--        <td class="w-px border-t p-2.5 border-r-2">-->
-      <!--          {{ payment.currency }}-->
-      <!--        </td>-->
+        <td class="w-px border-t p-2.5 border-r-2">
+          {{ conversion.payment_type }}
+        </td>
 
-      <!--        <td class="w-px border-t p-2.5 border-r-2">-->
-      <!--          {{ payment.amount }}-->
-      <!--        </td>-->
+        <td class="w-px border-t p-2.5 border-r-2">
+          {{ conversion.income }}
+        </td>
 
-      <!--        <td class="w-px border-t p-2.5 border-r-2">-->
-      <!--          {{ payment.type }}-->
-      <!--        </td>-->
+        <td class="w-px border-t p-2.5 border-r-2">
+          {{ conversion.s1 }}
+        </td>
 
-      <!--      </tr>-->
-      <!--      <tr v-if="payment.length === 0">-->
-      <!--        <td class="px-6 py-4 border-t" colspan="4">No contacts found.</td>-->
-      <!--      </tr>-->
+        <td class="w-px border-t p-2.5 border-r-2">
+          {{ conversion.s2 }}
+        </td>
+
+        <td class="w-px border-t p-2.5 border-r-2">
+          {{ conversion.s3 }}
+        </td>
+
+        <td class="w-px border-t p-2.5 border-r-2">
+          {{ conversion.s4 }}
+        </td>
+
+        <td class="w-px border-t p-2.5 border-r-2">
+          {{ conversion.s5 }}
+        </td>
+
+      </tr>
+
     </table>
   </div>
 
 </template>
 
 <script>
-import { Head } from '@inertiajs/inertia-vue3'
+import {Head} from '@inertiajs/inertia-vue3'
 import Layout from '@/Shared/Layout'
 
 export default {
@@ -51,5 +65,8 @@ export default {
     Head,
   },
   layout: Layout,
+  props: {
+    tableConversion: Object
+  }
 }
 </script>
