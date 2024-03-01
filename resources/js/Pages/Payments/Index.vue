@@ -68,7 +68,7 @@
         <th class="pb-4 pt-6 px-6 border-r-2">Сумма</th>
         <th class="pb-4 pt-6 px-6">Тип</th>
       </tr>
-      <tr v-for="payment in payments" :key="payment.id" class="hover:bg-gray-100 focus-within:bg-gray-100">
+      <tr v-for="payment in payments.data" :key="payment.id" class="hover:bg-gray-100 focus-within:bg-gray-100">
         <td class="w-px border-t p-2.5 border-r-2">
           {{ payment.created_at }}
         </td>
@@ -86,9 +86,7 @@
         </td>
 
       </tr>
-      <!--      <tr v-if="payment.length === 0">-->
-      <!--        <td class="px-6 py-4 border-t" colspan="4">No contacts found.</td>-->
-      <!--      </tr>-->
+
     </table>
   </div>
 
@@ -108,7 +106,7 @@ export default {
 
   props: {
     telegramm: String,
-    payments: Array,
+    payments: Object,
   },
 
   data() {

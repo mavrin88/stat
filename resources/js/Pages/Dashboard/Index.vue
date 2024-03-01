@@ -235,13 +235,14 @@
             <!-- Badge -->
             <span class="badge bg-info-soft mt-n1">Доступно для вывода</span>
             <!-- Heading -->
-            <span v-if="widget_available_balances.length > 0" class="text-2xl pl-2 pr-2 pt-4">{{widget_available_balances}}</span>
-            <span v-else class="text-2xl pl-2 pr-2 pt-4">0</span>
+<!--            <span v-if="widget_available_balances.length > 0" class="text-2xl pl-2 pr-2 pt-4">{{widget_available_balances}}</span>-->
+            <span class="text-2xl pl-2 pr-2 pt-4">{{widget_available_balances}}</span>
+<!--            <span v-else class="text-2xl pl-2 pr-2 pt-4">0</span>-->
           </div>
         </div>
       </div>
     </div>
-
+{{widget_available_balances.available_balance}}
     <div class="card w-1/5 mr-4">
       <div class="card-body">
         <div class="row align-items-center gx-0">
@@ -271,14 +272,14 @@
             <!-- Badge -->
             <span class="badge bg-info-soft ">Всего подписчиков</span>
             <!-- Heading -->
-            <span v-if="widget_active_subscribed.length > 0" class="text-2xl pl-2 pr-2 pt-4">{{widget_active_subscribed}}</span>
-            <span v-else class="text-2xl pl-2 pr-2 pt-4">0</span>
+<!--            <span v-if="widget_active_subscribed.length == 2" class="text-2xl pl-2 pr-2 pt-4">{{widget_active_subscribed}}</span>-->
+            <span class="text-2xl pl-2 pr-2 pt-4">{{widget_active_subscribed}}</span>
+<!--            <span v-else class="text-2xl pl-2 pr-2 pt-4">0</span>-->
           </div>
         </div>
       </div>
     </div>
   </div>
-
 
   <div class="grid md:grid-cols-2 md:gap-6">
     <div  class="relative z-0 w-full mb-6 group">
@@ -289,7 +290,7 @@
     </div>
 
   </div>
-{{tableScribers}}
+
   <div class="bg-white rounded-md shadow overflow-x-auto mt-4">
     <table class="w-full whitespace-nowrap">
       <tr class="text-left font-bold">

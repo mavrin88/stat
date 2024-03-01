@@ -6,7 +6,6 @@ use App\Http\Resources\ConversionResource;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 
-
 class Statistic_1Controller extends Controller
 {
     public function index()

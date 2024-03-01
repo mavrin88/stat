@@ -11,14 +11,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-//        try {
-//            $tableScribers = Payment_log::where('user_id', 34773
-//
-//            )->get();
-////            $tableScribers = Payment_log::all();
-//        } catch (\Exception $e) {
-//            dd($e->getMessage());
-//        }
 
         $authUser = \auth()->user();
         $user = User::with('source')->where('id', $authUser->id)->first();
@@ -74,28 +66,27 @@ class DashboardController extends Controller
 
         $acive_subscriptions = $activeScribers->count();
 
-
         // Виджет Доступные балансы:
 
-//        WITH data AS (
-//    SELECT
-//    p.user_id as pid,
-//    p.income,
-//    ptp.amount
-//   FROM payment_logs p
-//   JOIN users u ON u.id = p.user_id
-//   JOIN sources s on s.name=cast(u.registered_params as jsonb) ->> 'source'
-//   JOIN partners pp on pp.id=s.partner_id
-//   JOIN payment_to_partners ptp on pp.id = ptp.partner_id
-//   WHERE p.status = TRUE
-//    AND pp.id = <ID партнера>
-//     )
-//SELECT
-//    sum(d.income)/2 - d.amount as available_balance
-//FROM data d
-//group by d.amount
+        $availableBalances = DB::table('payment_logs as p')
+            ->select('ptp.amount', 'p.income', DB::raw('SUM(p.income)/2 - ptp.amount as available_balance'))
+            ->join('users as u', 'u.id', '=', 'p.user_id')
+            ->join('sources as s', function ($join) {
+                $join->on(DB::raw("CAST(u.registered_params AS jsonb) ->> 'source'"), '=', 's.name');
+            })
+            ->join('partners as pp', 'pp.id', '=', 's.partner_id')
+            ->join('payment_to_partners as ptp', 'pp.id', '=', 'ptp.partner_id')
+            ->where('p.status', true)
+            ->where('pp.id', $authUser->id)
+            ->groupBy('ptp.amount', 'p.income')
+            ->distinct()
+            ->get();
 
-        $available_balances = '';
+        $available_balances = $availableBalances->countBy('available_balance')->keys()->sum();
+
+//dd($availableBalances->countBy('available_balance'));
+//dd($availableBalances);
+
 
 
         // Таблица подписчиков
@@ -120,11 +111,6 @@ class DashboardController extends Controller
 //            ->where('pp.id', $authUser->id)
 //            ->where('p.status', true)
 //            ->get();
-
-
-
-
-//        dd($tableScribers);
 
         return Inertia::render('Dashboard/Index', ['source_name' => $user->source->name, 'widget_total_income' => $totalIncome, 'widget_available_balances'=> $available_balances, 'widget_period_subscribed' => $all_subscriptions, 'widget_active_subscribed' => $acive_subscriptions, 'tableScribers' => '$tableScribers']);
 

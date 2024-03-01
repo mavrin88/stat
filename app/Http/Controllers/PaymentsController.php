@@ -17,12 +17,9 @@ class PaymentsController extends Controller
     public function index()
     {
         $user = \auth()->user();
+        $payment = Payment_to_partner::where('partner_id', $user->id)->get();
 
-        $payment = Payment_to_partner::where('partner_id', 17)->orderBy('created_at', 'desc')->first(['id', 'amount', 'type', 'currency']);
-
-        return Inertia::render('Payments/Index', [
-            'payments' => PaymentsResource::make($payment)
-        ]);
+        return Inertia::render('Payments/Index', ['payments' =>  PaymentsResource::collection($payment)]);
 
     }
 
